@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.session.AdminRegistration">
+   <children>
+      <TextField fx:id="login" layoutX="225.0" layoutY="111.0" visible="true"/>
+      <TextField fx:id="password" layoutX="226.0" layoutY="174.0" visible="true"/>
+      <RadioButton fx:id="student" layoutX="256.0" layoutY="228.0" mnemonicParsing="false" text="RadioButton" visible="true"/>
+      <RadioButton fx:id="teacher" layoutX="256.0" layoutY="259.0" mnemonicParsing="false" text="RadioButton" visible="true"/>
+      <RadioButton fx:id="zamDirector" layoutX="256.0" layoutY="286.0" mnemonicParsing="false" text="RadioButton" visible="true"/>
+      <Button fx:id="regButton" layoutX="266.0" layoutY="321.0" mnemonicParsing="false" text="Button" visible="true"/>
+   </children>
+</AnchorPane>
