@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class HelloController {
@@ -52,46 +53,43 @@ public class HelloController {
         String role = dbManager.authenticate(loginText, loginPassword);
         switch (role){
             case "student" -> {
-                logInButton.getScene().getWindow().hide();
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("educationalWorker-view.fxml"));
+                Stage stage = (Stage) logInButton.getScene().getWindow();
+                Parent root = null;
                 try {
-                    loader.load();
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
+                            ("educationalWorker-view.fxml")));
                 } catch (IOException e) {
-                    System.out.println(e.getMessage());
+                    throw new RuntimeException(e);
                 }
-                Parent root = loader.getRoot();
-                Stage stage = new Stage();
+                stage.setTitle("Session");
                 stage.setScene(new Scene(root));
-                stage.showAndWait();
+                stage.show();
             }
             case "admin" -> {
-                logInButton.getScene().getWindow().hide();
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("admin-registration.fxml"));
+                Stage stage = (Stage) logInButton.getScene().getWindow();
+                Parent root = null;
                 try {
-                    loader.load();
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
+                            ("admin-menu.fxml")));
                 } catch (IOException e) {
-                    System.out.println(e.getMessage());
+                    throw new RuntimeException(e);
                 }
-                Parent root = loader.getRoot();
-                Stage stage = new Stage();
+                stage.setTitle("Session");
                 stage.setScene(new Scene(root));
-                stage.showAndWait();
+                stage.show();
             }
-            case "zam_director" -> {
-                logInButton.getScene().getWindow().hide();
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("dispatcher-view.fxml"));
+            case "zamDirector" -> {
+                Stage stage = (Stage) logInButton.getScene().getWindow();
+                Parent root = null;
                 try {
-                    loader.load();
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
+                            ("zamDirector-menu.fxml")));
                 } catch (IOException e) {
-                    System.out.println(e.getMessage());
+                    throw new RuntimeException(e);
                 }
-                Parent root = loader.getRoot();
-                Stage stage = new Stage();
+                stage.setTitle("Session");
                 stage.setScene(new Scene(root));
-                stage.showAndWait();
+                stage.show();
             }
             default -> System.out.println("wrong login or password");
         }

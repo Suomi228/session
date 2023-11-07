@@ -29,15 +29,15 @@ public class AdminRegistration {
             String password1 = password.getText().trim();
             String role;
             if (student.isSelected()) {
-                role = "rew";
+                role = "student";
             } else if (teacher.isSelected()) {
-                role = "ew";
+                role = "teacher";
             } else if (zamDirector.isSelected()) {
-                    role = "disp";
+                    role = "zamDirector";
             }
             else role = "";
             DButils manager = new DButils();
-            if (!username.equals("") && !password1.equals("") && !role.equals("")) {
+            if (!username.isEmpty() && !password1.isEmpty() && !role.isEmpty()) {
                 manager.registration(username, password1, role);
             }
         });
