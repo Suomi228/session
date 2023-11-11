@@ -56,7 +56,18 @@ public class AdminMenu implements Initializable {
         button_list_of_users.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                button_list_of_users.getScene().getWindow().hide();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("list-of-users.fxml"));
+                try {
+                    loader.load();
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+                Parent root = loader.getRoot();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.showAndWait();
             }
         });
     }
