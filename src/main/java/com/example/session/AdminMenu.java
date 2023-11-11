@@ -38,36 +38,34 @@ public class AdminMenu implements Initializable {
         button_reg.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                button_reg.getScene().getWindow().hide();
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("admin-registration.fxml"));
+                Stage stage = (Stage) button_reg.getScene().getWindow();
+                Parent root = null;
                 try {
-                    loader.load();
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
+                            ("admin-registration.fxml")));
                 } catch (IOException e) {
-                    System.out.println(e.getMessage());
+                    throw new RuntimeException(e);
                 }
-                Parent root = loader.getRoot();
-                Stage stage = new Stage();
+                stage.setTitle("Session");
                 stage.setScene(new Scene(root));
-                stage.showAndWait();
+                stage.show();
             }
         });
 
         button_list_of_users.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                button_list_of_users.getScene().getWindow().hide();
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("list-of-users.fxml"));
+                Stage stage = (Stage) button_list_of_users.getScene().getWindow();
+                Parent root = null;
                 try {
-                    loader.load();
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
+                            ("list-of-users.fxml")));
                 } catch (IOException e) {
-                    System.out.println(e.getMessage());
+                    throw new RuntimeException(e);
                 }
-                Parent root = loader.getRoot();
-                Stage stage = new Stage();
+                stage.setTitle("Session");
                 stage.setScene(new Scene(root));
-                stage.showAndWait();
+                stage.show();
             }
         });
     }
