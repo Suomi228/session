@@ -20,6 +20,7 @@
       <RadioButton fx:id="informatika" layoutX="352.0" layoutY="262.0" mnemonicParsing="false" text="информатика" toggleGroup="$subjects" visible="true" />
       <RadioButton fx:id="history" layoutX="471.0" layoutY="262.0" mnemonicParsing="false" text="история" toggleGroup="$subjects" visible="true" />
       <RadioButton fx:id="noSubject" layoutX="471.0" layoutY="222.0" mnemonicParsing="false" text="нет предмета" toggleGroup="$subjects" visible="true" />
-      <Button fx:id="regButton" layoutX="242.0" layoutY="321.0" mnemonicParsing="false" text="Зарегистрировать" visible="true" />
+      <Button fx:id="regButton" layoutX="242.0" layoutY="303.0" mnemonicParsing="false" text="Зарегистрировать" visible="true" />
+      <Button fx:id="button_logout" layoutX="275.0" layoutY="351.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
    </children>
 </AnchorPane>

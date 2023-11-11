@@ -2,11 +2,11 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.session.ListOfUsers">
+<AnchorPane prefHeight="410.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.session.ListOfUsers">
    <children>
-      <TableView fx:id="table_users" layoutX="199.0" layoutY="69.0" prefHeight="300.0" prefWidth="377.0">
+      <TableView fx:id="table_users" layoutX="279.0" layoutY="68.0" onMouseClicked="#getSelected" prefHeight="300.0" prefWidth="377.0">
         <columns>
           <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="col_username" prefWidth="75.0" text="USERNAME" />
@@ -15,5 +15,37 @@
             <TableColumn fx:id="col_subject" prefWidth="75.0" text="SUBJECT" />
         </columns>
       </TableView>
+      <AnchorPane layoutX="6.0" prefHeight="417.0" prefWidth="261.0">
+         <children>
+            <TextField fx:id="txt_username" layoutX="26.0" layoutY="59.0" promptText="Логин" />
+            <TextField fx:id="txt_password" layoutX="26.0" layoutY="101.0" promptText="Пароль" />
+             <RadioButton fx:id="student" layoutX="15.0" layoutY="158.0" mnemonicParsing="false" text="студент" visible="true">
+                 <toggleGroup>
+                     <ToggleGroup fx:id="group" />
+                 </toggleGroup></RadioButton>
+             <RadioButton fx:id="teacher" layoutX="14.0" layoutY="190.0" mnemonicParsing="false" text="учитель" toggleGroup="$group" visible="true" />
+             <RadioButton fx:id="zamDirector" layoutX="14.0" layoutY="222.0" mnemonicParsing="false" text="зам директора" toggleGroup="$group" visible="true" />
+             <RadioButton fx:id="math" layoutX="143.0" layoutY="158.0" mnemonicParsing="false" text="математика" visible="true">
+                 <toggleGroup>
+                     <ToggleGroup fx:id="subjects" />
+                 </toggleGroup></RadioButton>
+             <RadioButton fx:id="informatika" layoutX="143.0" layoutY="181.0" mnemonicParsing="false" text="информатика" toggleGroup="$subjects" visible="true" />
+             <RadioButton fx:id="history" layoutX="142.0" layoutY="230.0" mnemonicParsing="false" text="история" toggleGroup="$subjects" visible="true" />
+             <RadioButton fx:id="noSubject" layoutX="143.0" layoutY="207.0" mnemonicParsing="false" text="нет предмета" toggleGroup="$subjects" visible="true" />
+             <Button fx:id="editButton" layoutX="68.0" layoutY="257.0" mnemonicParsing="false" onMouseClicked="#Edit" text="Редактировать" visible="true" />
+            <Label layoutX="26.0" layoutY="132.0" prefHeight="17.0" prefWidth="39.0" text="Роль">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="186.0" layoutY="134.0" text="Предмет">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="delete" layoutX="48.0" layoutY="294.0" mnemonicParsing="false" onAction="#deleteSelected" text="Удалить пользователя" />
+            <Button fx:id="button_logout" layoutX="92.0" layoutY="337.0" mnemonicParsing="false" onAction="#goBack" text="Назад" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

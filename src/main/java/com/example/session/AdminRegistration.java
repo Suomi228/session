@@ -1,9 +1,17 @@
 package com.example.session;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.Objects;
 
 public class AdminRegistration {
 
@@ -29,6 +37,16 @@ public class AdminRegistration {
     private RadioButton teacher;
     @FXML
     private RadioButton zamDirector;
+    @FXML
+    private Button button_logout;
+    @FXML
+    void goBack(ActionEvent event) throws IOException { // GO BACK!!!
+        Stage stage = (Stage) button_logout.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin-menu.fxml")));
+        stage.setTitle("Session");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     @FXML
     void initialize() {
         regButton.setOnAction(event2->{
@@ -59,7 +77,9 @@ public class AdminRegistration {
             DButils manager = new DButils();
             if (!username.isEmpty() && !password1.isEmpty() && !role.isEmpty() && !subject.isEmpty()) {
                 manager.registration(username, password1, role, subject);
+                System.out.println("Пользователь добавлен.");
             }
+
         });
 
     }
